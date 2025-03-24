@@ -1,0 +1,181 @@
+/* 1. Keyframe animation for the logo */
+@keyframes logoAnimation {
+    0% {
+        width: 25px;
+        opacity: 0;
+    }
+
+    100% {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    width: 25px;
+    animation: logoAnimation 5s ease forwards;
+}
+
+
+/* 2. Body styles: font, background image, and fallback color */
+body {
+    font-family: "Poppins", serif;
+    background-image: url(images/concrete_seamless.png);
+    background-color: #f1f1f1;
+}
+
+/* 3. Header tag: use flex to match the example */
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: sticky;
+    background-color: white;
+}
+
+
+/* 4. nav_links: use flex to match the example */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 5. Challenge problem: style the link to same color even after visited */
+.nav_links a:link, .nav_links a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+/* 6. Styling the direct headers inside card class*/
+
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* 7. Edit card class to match the example */
+.card {
+    padding: 0px 0px 20px 0px;
+    border-radius: 50px 50px 0px 0px;
+    flex: 1 1 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 8. Edit pricing container to match the example */
+.pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 9. Style gallery images */
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* 10. Edit gallery class to match the example */
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
+/* MEDIA QUERIES: 900px */
+
+@media (min-width: 900px) {
+
+    /* 11. Edit header tag and nav_links */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    /* 12. Edit pricing and card classes to match the example */
+    .card {
+        display: flex;
+        flex-basis: 275px;
+    }
+
+    .pricing {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    /* 13. Modify the first header */
+    body > header:first-of-type {
+        position: sticky;
+        top: 0;
+        visibility: visible;
+    }
+}
+
+/* 14. The logo appear but not be animated if prefers-reduced-motion is selected */
+
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+/* Portrait mode */
+
+@media print {
+
+    body {
+        font-family: Arial, Helvetica, sans-serif; /* 15. Change the font on your body to Arial with a backup value of  Helvetica */
+        background-image: none; /* 16. Remove background image */
+        background-color: #f1f1f1;
+    }
+
+    /* 17. Edit the nav/nav_links elements so they are spaced according to the image above */
+    nav {
+        width: 100%;
+    }
+
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+    }
+
+    /* 18. Edit the pricing class so that the elements align along the bottom */
+
+    .pricing {
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    /* 19. Edit the card element */
+    .card {
+        display: flex;
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* 20. No part of the gallery should be visible */
+    .gallery, #gallery {
+        display: none;
+    }
+
+    /* Challenge problem: without using list-style-type add the thumbs up entity as shown in the cards */
+    .card ul li:nth-child(2)::after {
+        content: " 👍";
+    }
+}
